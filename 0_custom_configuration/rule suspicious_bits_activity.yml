@@ -1,0 +1,122 @@
+rule suspicious_bits_activity { 
+	meta: 
+		version = "0.01"
+		created = "2023-05-08"
+		modified = "2023-05-10"
+		author = "Cameron Johns"
+		contributor = "Miguel Arias - Cyber Threat Hunting Team"
+		description = "The BITS (Background Intelligent Transfer Service) is a Windows native tool that can be utilized to download or upload files as a file transfer mechanism, and commonly executes in the background."
+		reference = "https://gheprod.corp.costco.com/costco-developers/cth-cyber-threat-hunting/blob/main/hunts/attack-based-hunts/mitreatt%26ck/Persistence/Suspicious%20BITS%20Activity.yml"
+		confidence = "Medium"
+		severity = "Medium"
+		scenario = ""
+		tags = "defense_evasion, persistence, t1197, s0190"
+		actor = ""
+		falsepositives = "Some legitimate apps use this, but limited."
+		status = "Disabled"
+		logsource = "process_creation, windows"
+		cyderes_managed = "false"
+	events:
+	(
+            (
+                (
+                re.regex($event.principal.process.command_line, `.*\/transfer\s.*`) or
+                re.regex($event.principal.process.command_line, `.*Start-BitsTransfer.*`)
+                )
+                and
+            (
+                $event.principal.process.command_line = /.*http.*/ or
+                $event.principal.process.command_line = /.*:\/\/1.*/ or
+                $event.principal.process.command_line = /.*:\/\/2.*/ or
+                $event.principal.process.command_line = /.*:\/\/3.*/ or
+                $event.principal.process.command_line = /.*:\/\/4.*/ or
+                $event.principal.process.command_line = /.*:\/\/5.*/ or
+                $event.principal.process.command_line = /.*:\/\/6.*/ or
+                $event.principal.process.command_line = /.*:\/\/7.*/ or
+                $event.principal.process.command_line = /.*:\/\/8.*/ or
+                $event.principal.process.command_line = /.*:\/\/9.*/ or
+                $event.principal.process.command_line = /.*\.asax.*/ or
+                $event.principal.process.command_line = /.*\.ashx.*/ or
+                $event.principal.process.command_line = /.*\.asmx.*/ or
+                $event.principal.process.command_line = /.*\.asp.*/ or
+                $event.principal.process.command_line = /.*\.aspx.*/ or
+                $event.principal.process.command_line = /.*\.bat.*/ or
+                $event.principal.process.command_line = /.*\.cfm.*/ or
+                $event.principal.process.command_line = /.*\.cgi.*/ or
+                $event.principal.process.command_line = /.*\.chm.*/ or
+                $event.principal.process.command_line = /.*\.cmd.*/ or
+                $event.principal.process.command_line = /.*\.gif.*/ or
+                $event.principal.process.command_line = /.*\.jpeg.*/ or
+                $event.principal.process.command_line = /.*\.jpg.*/ or
+                $event.principal.process.command_line = /.*\.jsp.*/ or
+                $event.principal.process.command_line = /.*\.jspx.*/ or
+                $event.principal.process.command_line = /.*\.png.*/ or
+                $event.principal.process.command_line = /.*\.ps1.*/ or
+                $event.principal.process.command_line = /.*\.psm1.*/ or
+                $event.principal.process.command_line = /.*\.scf.*/ or
+                $event.principal.process.command_line = /.*\.sct.*/ or
+                $event.principal.process.command_line = /.*\.txt.*/ or
+                $event.principal.process.command_line = /.*\.vbe.*/ or
+                $event.principal.process.command_line = /.*\.vbs.*/ or
+                $event.principal.process.command_line = /.*\.war.*/ or
+                $event.principal.process.command_line = /.*\.wsf.*/ or
+                $event.principal.process.command_line = /.*\.wsh.*/ or
+                $event.principal.process.command_line = /.*\.zip.*/ or
+                $event.principal.process.command_line = /.*\.rar.*/ or
+                $event.principal.process.command_line = /.*\.dll.*/
+            )
+            
+		) or //capture BITS activity whether it is called directly or by a separate process.
+        (
+            (
+                re.regex($event.target.process.command_line, `.*\/transfer\s.*`) or  
+                re.regex($event.target.process.command_line, `.*Start-BitsTransfer.*`)
+            )
+            and
+            (
+                $event.target.process.command_line = /.*http.*/ or
+                $event.target.process.command_line = /.*:\/\/1.*/ or
+                $event.target.process.command_line = /.*:\/\/2.*/ or
+                $event.target.process.command_line = /.*:\/\/3.*/ or
+                $event.target.process.command_line = /.*:\/\/4.*/ or
+                $event.target.process.command_line = /.*:\/\/5.*/ or
+                $event.target.process.command_line = /.*:\/\/6.*/ or
+                $event.target.process.command_line = /.*:\/\/7.*/ or
+                $event.target.process.command_line = /.*:\/\/8.*/ or
+                $event.target.process.command_line = /.*:\/\/9.*/ or
+                $event.target.process.command_line = /.*\.asax.*/ or
+                $event.target.process.command_line = /.*\.ashx.*/ or
+                $event.target.process.command_line = /.*\.asmx.*/ or
+                $event.target.process.command_line = /.*\.asp.*/ or
+                $event.target.process.command_line = /.*\.aspx.*/ or
+                $event.target.process.command_line = /.*\.bat.*/ or
+                $event.target.process.command_line = /.*\.cfm.*/ or
+                $event.target.process.command_line = /.*\.cgi.*/ or
+                $event.target.process.command_line = /.*\.chm.*/ or
+                $event.target.process.command_line = /.*\.cmd.*/ or
+                $event.target.process.command_line = /.*\.gif.*/ or
+                $event.target.process.command_line = /.*\.jpeg.*/ or
+                $event.target.process.command_line = /.*\.jpg.*/ or
+                $event.target.process.command_line = /.*\.jsp.*/ or
+                $event.target.process.command_line = /.*\.jspx.*/ or
+                $event.target.process.command_line = /.*\.png.*/ or
+                $event.target.process.command_line = /.*\.ps1.*/ or
+                $event.target.process.command_line = /.*\.psm1.*/ or
+                $event.target.process.command_line = /.*\.scf.*/ or
+                $event.target.process.command_line = /.*\.sct.*/ or
+                $event.target.process.command_line = /.*\.txt.*/ or
+                $event.target.process.command_line = /.*\.vbe.*/ or
+                $event.target.process.command_line = /.*\.vbs.*/ or
+                $event.target.process.command_line = /.*\.war.*/ or
+                $event.target.process.command_line = /.*\.wsf.*/ or
+                $event.target.process.command_line = /.*\.wsh.*/ or
+                $event.target.process.command_line = /.*\.zip.*/ or
+                $event.target.process.command_line = /.*\.rar.*/ or
+                $event.target.process.command_line = /.*\.dll.*/
+            )
+            
+		)
+    )
+  condition:
+    $event
+}
