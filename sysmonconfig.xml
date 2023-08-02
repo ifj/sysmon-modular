@@ -1203,7 +1203,6 @@
         <SourceImage condition="is">C:\Program Files (x86)\Citrix\ICA Client\Receiver\Receiver.exe</SourceImage>
         <SourceImage condition="is">c:\Program Files\Couchbase\Server\bin\sigar_port.exe</SourceImage>
         <SourceImage condition="contains all">C:\Program Files\Elastic\Agent\data\;\metricbeat.exe</SourceImage>
-        <SourceImage condition="contains all">C:\Program Files;\FireEye\xagt\xagt.exe</SourceImage>
         <SourceImage condition="is">C:\Program Files (x86)\Ivanti\Workspace Control\cpushld.exe</SourceImage>
         <SourceImage condition="is">C:\Program Files (x86)\RES Software\Workspace Manager\cpushld.exe</SourceImage>
         <SourceImage condition="is">C:\Program Files\Ivanti\Workspace Control\cpushld.exe</SourceImage>
@@ -1936,7 +1935,6 @@
         <Image condition="contains all">C:\Program Files;\Citrix\ICA Client\concentr.exe</Image>
         <Image condition="contains all">C:\Users\;\AppData\Local\Citrix\ICA Client\receiver\Receiver.exe</Image>
         <Image condition="contains all">C:\Users\;\AppData\Local\Citrix\ICA Client\SelfServicePlugin\SelfService.exe</Image>
-        <Image condition="contains all">C:\Program Files;\FireEye\xagt\xagt.exe</Image>
         <Rule groupRelation="and">
           <Image condition="contains all">C:\Program Files;\Google\Update\Install\;setup.exe</Image>
           <PipeName condition="begin with">\crashpad_</PipeName>
