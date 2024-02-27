@@ -1,0 +1,10 @@
+<Sysmon schemaversion="4.30"> <!--Initial Tuning 2/26/24-->
+	<EventFiltering>
+		<RuleGroup name="" groupRelation="and">
+			<RegistryEvent onmatch="exclude">
+                <Image condition="is">C:\WINDOWS\system32\cscript.exe</Image>
+				<TargetObject condition="contains all">\Microsoft\;\Certificates</TargetObject>
+			</RegistryEvent>
+		</RuleGroup>
+	</EventFiltering>
+</Sysmon>

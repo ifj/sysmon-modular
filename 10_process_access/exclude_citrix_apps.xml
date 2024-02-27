@@ -1,0 +1,14 @@
+<Sysmon schemaversion="4.60">
+  <EventFiltering>
+    <RuleGroup name="" groupRelation="or">
+      <ProcessAccess onmatch="exclude">
+        <SourceImage condition="end with">\LoginPI\Engine\LoginPi.Engine.exe</SourceImage> <!--LoginEnterprise - Initial Tuning 2/26/24-->
+        <TargetImage condition="contains all">C:\Users\;\Temp\10\LoginEnterprise\EuxApp\</TargetImage> <!--LoginEnterprise - Initial Tuning 2/26/24-->
+        <TargetImage condition="contains all">C:\Program Files\Smart-X\ControlUpAgent\;\cuAgentHelper.exe</TargetImage> <!--ControlUp - Initial Tuning 2/26/24-->
+        <TargetImage condition="is">C:\Program Files\ShareX\ShareX.exe</TargetImage> <!-- ShareX - Initial Tuning 2/26/24-->
+        <TargetImage condition="is">C:\Program Files (x86)\Micro Focus\LoadRunner\launch_service\bin\magentproc.exe</TargetImage> <!-- MicroFocus - Initial Tuning 2/26/24-->
+        <TargetImage condition="is">C:\Program Files (x86)\DigitalPersona\Bin\DPAgent.exe</TargetImage> <!-- Digital Persona - Initial Tuning 2/26/24-->
+      </ProcessAccess>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>
