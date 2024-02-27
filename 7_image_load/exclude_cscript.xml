@@ -6,10 +6,12 @@
           <Image condition="is">C:\Windows\System32\cscript.exe</Image>
           <ImageLoaded condition="is">C:\Windows\System32\vbscript.dll</ImageLoaded>
           <SHA1 condition="is">9ADE7AAE12304F5799F56FCB01225BF7A876B400</SHA1>
+        </Rule>
         <Rule groupRelation="and">
           <Image condition="is">C:\Windows\System32\cscript.exe</Image>
           <ImageLoaded condition="is">C:\Windows\System32\amsi.dll</ImageLoaded>
           <SHA1 condition="is">7F726807E2F3B2F6D98D7B103D794DA01E3BBB47</SHA1>
+        </Rule>
         <Rule groupRelation="and">
           <Image condition="is">C:\Windows\System32\cscript.exe</Image>
           <ImageLoaded condition="is">C:\Windows\System32\wshom.ocx</ImageLoaded>
