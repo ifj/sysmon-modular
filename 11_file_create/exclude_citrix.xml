@@ -1,0 +1,11 @@
+<Sysmon schemaversion="4.30"> <!--Initial Tuning 2/26/24-->
+	<EventFiltering>
+		<RuleGroup name="" groupRelation="or">
+			<FileCreate onmatch="exclude">
+				<Image condition="begin with">C:\Program Files (x86)\Citrix\</Image>
+                <Image condition="begin with">C:\Program Files\Citrix\</Image>
+                <TargetFilename condition="begin with">C:\Windows\System32\winevt\Logs\Citrix</TargetFilename>
+			</FileCreate>
+		</RuleGroup>
+	</EventFiltering>
+</Sysmon>

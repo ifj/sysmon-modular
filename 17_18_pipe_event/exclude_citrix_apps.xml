@@ -1,0 +1,9 @@
+<Sysmon schemaversion="4.60">
+  <EventFiltering>
+    <RuleGroup name="" groupRelation="or">
+      <PipeEvent onmatch="exclude">
+        <Image condition="begin with">C:\Program Files\Smart-X\ControlUpAgent\</Image>
+      </PipeEvent>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

@@ -8,6 +8,9 @@
         <Image condition="contains all">C:\Program Files;\Citrix\ICA Client\concentr.exe</Image>
         <Image condition="contains all">C:\Users\;\AppData\Local\Citrix\ICA Client\receiver\Receiver.exe</Image>
         <Image condition="contains all">C:\Users\;\AppData\Local\Citrix\ICA Client\SelfServicePlugin\SelfService.exe</Image>
+        <Image condition="contains all">C:\Program Files\Citrix\HDX\bin\CtxSvcHost.exe</Image> <!--Initial Tuning 2/26/24 -->
+        <Image condition="contains all">C:\Program Files\Citrix\Virtual Desktop Agent\BrokerAgent.exe</Image> <!--Initial Tuning 2/26/24 -->
+        <Image condition="contains all">C:\Program Files (x86)\Citrix\Workspace Environment Management Agent\Citrix.Wem.Agent.Service.exe</Image> <!--Initial Tuning 2/26/24 -->
       </PipeEvent>
     </RuleGroup>
   </EventFiltering>

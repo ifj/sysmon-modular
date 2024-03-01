@@ -5,6 +5,9 @@
             <SourceImage condition="contains all">C:\Users\;\AppData\Local\Citrix\ICA Client\receiver\Receiver.exe</SourceImage>
             <SourceImage condition="is">C:\Program Files (x86)\Citrix\ICA Client\Receiver\Receiver.exe</SourceImage>
             <SourceImage condition="is">C:\Program Files (x86)\Citrix\Workspace Environment Management Agent\PrivElevationEngine.exe</SourceImage> <!--Initial Tuning 2/26/24-->
+            <SourceImage condition="is">C:\Program Files (x86)\Citrix\Workspace Environment Management Agent\Citrix.Wem.Agent.Service.exe</SourceImage> <!--Initial Tuning 2/26/24-->
+            <SourceImage condition="is">C:\Program Files\Citrix\SessionRecording\Agent\Bin\SsRecAgent.exe</SourceImage> <!--Initial Tuning 2/26/24-->
+            <SourceImage condition="is">C:\Program Files\Citrix\Virtual Desktop Agent\BrokerAgent.exe</SourceImage> <!--Initial Tuning 2/26/24-->
             <TargetImage condition="is">C:\Program Files\Citrix\Virtual Desktop Agent\BrokerAgent.exe</TargetImage> <!--Initial Tuning 2/26/24-->
             <TargetImage condition="end with">\Citrix\ICA Client\SelfServicePlugin\SelfService.exe</TargetImage> <!--Initial Tuning 2/26/24-->
             <TargetImage condition="end with">\Citrix\ICA Client\SelfServicePlugin\SelfServicePlugin.exe</TargetImage> <!--Initial Tuning 2/26/24-->

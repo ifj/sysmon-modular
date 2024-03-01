@@ -1,0 +1,11 @@
+<Sysmon schemaversion="4.30">
+	<EventFiltering>
+		<RuleGroup name="" groupRelation="or">
+			<ProcessCreate onmatch="exclude">
+				<Image condition="is">C:\Program Files\VMware\VMware Tools\vmtoolsd.exe</Image><!-- VMware Tools -->
+                <ParentCommandLine condition="is">C:\Program Files\FSLogix\Apps\frxsvc.exe</ParentCommandLine><!-- FsLogix -->
+                <ParentImage condition="begin with">C:\Program Files\Smart-X\ControlUpAgent\</ParentImage><!-- Control Up Agent -->
+			</ProcessCreate>
+		</RuleGroup>
+	</EventFiltering>
+</Sysmon>
