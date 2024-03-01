@@ -1,0 +1,11 @@
+<Sysmon schemaversion="4.30"> <!--Initial Tuning 2/26/24-->
+	<EventFiltering>
+		<RuleGroup name="" groupRelation="or">
+			<FileCreate onmatch="exclude">
+				<Image condition="begin with">C:\Program Files\Smart-X\ControlUpAgent\</Image>
+                <Image condition="is">C:\Program Files\FSLogix\Apps\frxsvc.exe</Image>
+                <Image condition="is">C:\Program Files\SplunkUniversalForwarder\bin\splunkd.exe</Image>
+			</FileCreate>
+		</RuleGroup>
+	</EventFiltering>
+</Sysmon>
