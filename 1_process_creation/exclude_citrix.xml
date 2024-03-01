@@ -1,0 +1,11 @@
+<Sysmon schemaversion="4.30">
+	<EventFiltering>
+		<RuleGroup name="" groupRelation="or">
+			<ProcessCreate onmatch="exclude">
+				<ParentCommandLine condition="begin with">C:\Program Files (x86)\Citrix\</ParentCommandLine><!-- Citrix -->
+                <Image condition="begin with">C:\Program Files\Citrix\</Image><!-- Citrix -->
+		        <Image condition="begin with">C:\Program Files (x86)\Citrix\</Image><!-- Citrix -->
+			</ProcessCreate>
+		</RuleGroup>
+	</EventFiltering>
+</Sysmon>
