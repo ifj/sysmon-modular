@@ -1,0 +1,33 @@
+<Sysmon schemaversion="4.30"> <!--Initial Tuning 2/26/24-->
+  <EventFiltering>
+    <RuleGroup name="" groupRelation="or">
+      <ImageLoad onmatch="exclude">
+        <Rule groupRelation="and">
+          <Image condition="is">C:\Windows\System32\cscript.exe</Image>
+          <ImageLoaded condition="is">C:\Windows\System32\vbscript.dll</ImageLoaded>
+          <Hashes condition="contains">9ADE7AAE12304F5799F56FCB01225BF7A876B400</Hashes>
+        </Rule>
+        <Rule groupRelation="and">
+          <Image condition="is">C:\Windows\System32\cscript.exe</Image>
+          <ImageLoaded condition="is">C:\Windows\System32\amsi.dll</ImageLoaded>
+          <Hashes condition="contains">7F726807E2F3B2F6D98D7B103D794DA01E3BBB47</Hashes>
+        </Rule>
+        <Rule groupRelation="and">
+          <Image condition="is">C:\Windows\System32\cscript.exe</Image>
+          <ImageLoaded condition="is">C:\Windows\System32\wshom.ocx</ImageLoaded>
+          <Hashes condition="contains">0FF4390F62E440B9F1D39772442D0282B17959D2</Hashes>
+        </Rule>
+        <Rule groupRelation="and">
+          <Image condition="is">C:\Windows\System32\cscript.exe</Image>
+          <ImageLoaded condition="is">C:\Windows\System32\scrrun.dll</ImageLoaded>
+          <Hashes condition="contains">81E8E3A19BB577203893CBEB09E68BD0CD7B63DD</Hashes>
+        </Rule>
+        <!--Microsoft Defender-->
+        <Rule groupRelation="and">
+          <Image condition="is">C:\Windows\System32\cscript.exe</Image>
+          <ImageLoaded condition="Contains any">MpOAV.dll;MpClient.dll;MpOAV.dll;MpClient.dll</ImageLoaded>
+        </Rule>       
+      </ImageLoad>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

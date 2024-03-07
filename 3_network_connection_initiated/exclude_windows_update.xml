@@ -11,6 +11,7 @@
 				<DestinationHostname condition="end with">download.microsoft.com</DestinationHostname>				<!--Microsoft:Update delivery-->
 				<DestinationHostname condition="end with">microsoft.com.akadns.net</DestinationHostname>				<!--Microsoft:Update delivery-->
 				<DestinationHostname condition="end with">microsoft.com.nsatc.net</DestinationHostname>				<!--Microsoft:Update delivery-->
+				<Image condition="end with">MsMpEng.exe</Image>	<!--v.4 Tuning-->
 			</NetworkConnect>
 		</RuleGroup>
 	</EventFiltering>
